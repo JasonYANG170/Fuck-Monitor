@@ -34,14 +34,23 @@
 - ✅您的网络操作不再上传至监控服务器
 
 ## 原理说明
-本程序源码公开透明，本程序原理是通过最高权限关闭以下监控程序
+本程序源码公开透明，本程序原理是执行以下命令关闭监控应用，并在此基础上添加了恢复监控应用和监控应用检查功能
 ```
-"UniAccessAgentTray.exe","UniAccessAgentDaemon.exe",
-"UniAccessAgent.exe","SRClient.exe","GetCorbicula.exe",
-"Tinaiat.exe","LVFS_Client.exe","DLPService.exe",
-"DLPOCR.exe","DLPExtend.exe","DLPCheck.exe",
-"FileDownloader.exe","LvaNac.exe","lvnetcheck.exe",
-"LvVulEngine.exe"
+taskkill /f /im UniAccessAgentTray.exe
+taskkill /f /im UniAccessAgentDaemon.exe
+taskkill /f /im UniAccessAgent.exe
+taskkill /f /im SRClient.exe
+taskkill /f /im GetCorbicula.exe
+taskkill /f /im Tinaiat.exe
+taskkill /f /im LVFS_Client.exe
+taskkill /f /im DLPService.exe
+taskkill /f /im DLPOCR.exe
+taskkill /f /im DLPExtend.exe
+taskkill /f /im DLPCheck.exe
+taskkill /f /im FileDownloader.exe
+taskkill /f /im LvaNac.exe
+taskkill /f /im lvnetcheck.exe
+taskkill /f /im LvVulEngine.exe
 ```
 如遇问题，请向我提出issues
 ## 喜欢这个项目，请为我点个Star ⭐ 
