@@ -44,11 +44,13 @@ void MainWindow::on_checkBox_clicked(bool checked)
             QProcess::execute("taskkill", QStringList() << "/f" << "/im" << process);
         }
         ui->checkBox->setText("监控已关闭"); // 更新复选框文字
+        checkRunningProcesses();
     } else {
         for (const QString &process : processes) {
             QProcess::startDetached(process); // 需提供完整路径
         }
         ui->checkBox->setText("监控已恢复"); // 更新复选框文字
+        checkRunningProcesses();
     }
 }
 
@@ -93,11 +95,11 @@ void MainWindow::checkRunningProcesses()
 
         if (output.contains(process, Qt::CaseInsensitive)) {
             ui->checkBox->setChecked(false); // 取消勾选
-            ui->checkBox->setText("监控已开启"); // 修改文本
+            ui->checkBox->setText("监控软件正在运行"); // 修改文本
             break;
         }else{
             ui->checkBox->setChecked(true); // 取消勾选
-            ui->checkBox->setText("未检测到监控软件"); // 修改文本
+            ui->checkBox->setText("监控软件未运行"); // 修改文本
             break;
         }
     }
