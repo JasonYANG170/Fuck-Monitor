@@ -4,7 +4,7 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QDir>
-
+#include <QTimer>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -44,13 +44,19 @@ void MainWindow::on_checkBox_clicked(bool checked)
             QProcess::execute("taskkill", QStringList() << "/f" << "/im" << process);
         }
         ui->checkBox->setText("监控已关闭"); // 更新复选框文字
+        QTimer::singleShot(10000, [this](){
+        // 这里是要延迟执行的代码
         checkRunningProcesses();
+    });
     } else {
         for (const QString &process : processes) {
-            QProcess::startDetached(process); // 需提供完整路径
+           QProcess::startDetached("C:\\Windows\\LVUAAgentInstBaseRoot\\" + process); // 需提供完整路径
         }
         ui->checkBox->setText("监控已恢复"); // 更新复选框文字
+         QTimer::singleShot(10000, [this](){
+        // 这里是要延迟执行的代码
         checkRunningProcesses();
+    });
     }
 }
 
@@ -74,7 +80,6 @@ void MainWindow::checkRunningProcesses()
         "UniAccessAgent.exe",
         "SRClient.exe",
         "GetCorbicula.exe",
-        "Tinaiat.exe",
         "LVFS_Client.exe",
         "DLPService.exe",
         "DLPOCR.exe",
