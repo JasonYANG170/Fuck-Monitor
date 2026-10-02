@@ -13,30 +13,30 @@
 ![image](https://github.com/user-attachments/assets/8fe9b9e5-9fe4-49c7-b176-6e9c7cf1b192)
 
 
-这是一项基于QT的监控去除工具
+A Qt-based tool for stopping monitoring applications.
 
 </div>
 
 
-## 功能
-- ✅支持关闭联软监控程序
-- ✅支持监控程序运行监测
-- ✅支持以最高权限关闭应用
-- ✅支持关闭隐藏中的应用
-- ✅支持恢复监控程序
+## Features
+- ✅Stop UniAccess monitoring applications
+- ✅Detect whether monitoring applications are running
+- ✅Stop applications with elevated privileges
+- ✅Support closing hidden applications
+- ✅Restore monitoring applications
 
-## 关闭监控后您可以
-- ✅插拔U盘
-- ✅去除水印
-- ✅连接WIFI
-- ✅密码设置不再受限
-- ✅网络进程不再被监控
-- ✅您的账户不再被监控管理
-- ✅监控程序不再记录您的操作日志
-- ✅您的网络操作不再上传至监控服务器
+## After turning off monitoring, you can
+- ✅Connect and disconnect USB drives
+- ✅Remove watermark
+- ✅Connect to WIFI
+- ✅Password settings are no longer restricted
+- ✅Network processes are no longer monitored
+- ✅Your account is no longer monitored and managed
+- ✅The monitoring program will no longer record your operation logs
+- ✅Your network operations are no longer uploaded to the monitoring server
 
-## 原理说明
-本程序源码公开透明，本程序原理是执行以下命令关闭监控应用，并在此基础上添加了恢复监控应用和监控应用检查功能
+## Principle description
+The source code of this program is open and transparent. The principle of this program is to execute the following command to close the monitoring application, and on this basis, it adds the functions of restoring the monitoring application and monitoring application inspection.
 ```
 taskkill /f /im UniAccessAgentTray.exe
 taskkill /f /im UniAccessAgentDaemon.exe
@@ -54,8 +54,8 @@ taskkill /f /im LvaNac.exe
 taskkill /f /im lvnetcheck.exe
 taskkill /f /im LvVulEngine.exe
 ```
-如遇问题，请向我提出issues
-## 喜欢这个项目，请为我点个Star ⭐ 
+If you encounter any problems, please submit issues to me
+## If you like this project, please give me a star ⭐
 
 [![Star History Chart](https://api.star-history.com/svg?repos=JasonYANG170/Fuck-Monitor&type=Date)](https://star-history.com/#star-history/star-history&Date)
 
